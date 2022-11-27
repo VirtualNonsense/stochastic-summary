@@ -78,7 +78,7 @@ Oft kommt es vor, dass Merkmale nicht unabhängig voneinander sind sondern zusam
     \centering
     \includegraphics[width=0.3\textwidth]{images/3.4_streudiagramme_mit_unterschiedlicher_kor.png}
     \caption{streudiagramme für STichproben mit verschiedenen Korrelationen}
-    \vspace{-3mm}
+    \vspace{-12mm}
     \label{fig:streudiagramme}
 \end{wrapfigure}
 Die einfachste Möglichkeit, die gemeinsamen Beobachtungen stetiger Merkmale darzustellen, ist das Streudiagramm, bei dem alle Beobachtungen als Punkte in der $(x, y)$ -Ebene aufgetragen werden. Dabei genügt es, dass ein Merkmal stetig und das andere zumindest ordinalskaliert ist, um übereinander liegende Punkte (weitestgehend) auszuschließen. Diese Diagramme vermitteln einen schnellen Eindruck, ob es möglicherweise einen Zusammenhang zwischen den beiden Merkmalen gibt und, wenn ja, ob dieser positiv (steigende Gerade) oder negativ (fallende Gerade) ist.
@@ -94,6 +94,6 @@ Zwar kann man am Vorzeichen der Stichprobenvarianz eine Tendenz erkennen allerdi
     \item Der Korrelationskoeffizient misst, genau wie die Stichprobenkovarianz, die lineare Abhängigkeit zwischen den Merkmalen X und Y . Diese Linearität lässt sich wie folgt ausdrücken: $r = \pm 1 \Leftrightarrow \exists\, a, b \in \mathds{R},\, a \neq 0 \text{ mit } y_i = ax_i + b$ wobei $r = 1$, falls $a > 0$ und $r = -1$ , falls $a < 0$. \cref{fig:streudiagramme}f verdeutlicht ebenfalls, dass der Korrelationskoeffizient lediglich lineare zusammenhänge misst. Es besteht ein offensichtlicher, aber nichtlinearer Zusammenhang zwischen den Merkmalen. Der Korrelationskoeffizient ist aber null.
     \item Die konkrete Berechnung erfolgt in der Praxis mit \hlcm{$r = \frac{\sum_{i=1}^nx_iy_i - n\bar{x}\bar{y}}{\sqrt{(\sum_{i=1}^nx_i^2 - n\bar{x}^2)(\sum_{i=1}^ny_i^2 - n\bar{y}^2)}}$}
 \end{itemize}
-\textbf{Korrelation und Kausalität}: Nur weil etwas Korreliert heißt nicht, dass ein Kausaler zusammen besteht bsp. Filme mit Nicolas Cage und Tot durch Ertrinken im Pool pro Jahr in der US.  
+\textbf{Korrelation und Kausalität}: Nur weil etwas Korreliert heißt nicht, dass ein Kausaler zusammen besteht bsp. Filme mit Nicolas Cage und Tot durch Ertrinken im Pool pro Jahr in der US.\\
 
 \subsection{Lineare Regression}
