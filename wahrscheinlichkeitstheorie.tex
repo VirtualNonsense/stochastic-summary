@@ -56,7 +56,19 @@ Die \hlc{Verteilungsfunktion} ist \hlcm{$F(x) = F_X(x) := P(X\le x) = \sum_{i: x
 \hlc{Erwartungswert einer Diskreten Zufallsvariable}: Sei $X$ eine diskrete Zufallsvariable mit Wertebereich $W(X) = \{x_1, x_2, ...\}$ und Wahrscheinlichkeitsverteilung $p_1, p_2, ...$. Dann ist der Erwartungswert von $X$:\\ \hlcm{$E(X) := \sum_{i\ge1} x_i \cdot p_i = \sum_{i\ge1} x_i \cdot f(x_i) = \mu_x = \mu$}. Eigenschaften: \textbf{1} Für eine Funktion $g: \mathds{R} \rightarrow \mathds{R}$ ist auch $Y = g(X)$ eine Zufallsvariable, und zwar mit Wahrscheinlichkeitsverteilung $P(Y = y) = \sum_{i: g(x_i) = y} p_i$. \textbf{2} Der Erwartungswert von $Y$ ist dann $E(Y) = E(g(X)) = \sum_{i\ge1} g(x_i) \cdot p_i = \sum_{i\ge1} g(x_i) f(x_i)$. \textbf{3} Im Spezialfall einer linearen Transformation $g(x) = ax + b$ ist $E(Y) = E(aX+b) = aE(X) + b$. \textbf{4} Für Zufallsvariablen $X_1, ..., X_n$ und Konstanten $a_1, ..., a_n \in \mathds{R}$ gilt $E(a_1X_1 + ... + a_nX_n) = a_1E(X_1) + ... + a_nE(X_n)$. \textbf{5} Für unabhängige Zufallsvariablen $X_1$ und $X_2$ gilt außerdem $E(X_1 \cdot X_2) = E(X_1) \cdot E(X_2)$\\\\
 \hlc{Modus disktrer Zufallsvariablen} Jede lokale Maximumstelle der Wahrscheinlichkeitsfunktion $f_X(x)$ einer diskreten Zufallsvariablen $X$ ist ein Modus $x_{mod}$ der Verteilung von $X$. Bsp. Lokales Maximum in \cref{fig:f_F_dice} (oben) ist $x_mod$.\\\\
 \hlc{Varianz und Standardabweichung diskreter Zufallsvariablen} Sei $X$ eine diskrete Zufallsvariable mit Wertebereich $W(X) = \{x_1, x_2, ...\}$ und Wahrscheinlichkeitsverteilung $p_1, p_2$. dann ist die Varianz von $X$: $\sigma_x^2 = \sigma^2 = Var(X):= $ $ :=\sum_{i\ge1} (x_i - E(X))^2 \cdot p_i = \sum_{i\ge1} = (x_i - E(X))^2 \cdot f(x_i)$ dementsprechend ist die Varianz \hlcm{$\sigma = \sqrt{Var(X)}$}. Bei der praktischen Berechnung ist der \emph{Verschiebungssatz} recht hilfreich: \hlcm{$Var(X) = E(X^2) - (E(X))^2$}. Eigenschaften der Varianz: \textbf{1} Die Varianz der transformierten Y(X) = g(X) als reelle Funktion ist $Var(Y) = Var(g(X)) = \sum_{i\ge1} [g(x_i) - E(g(X))]^2 \cdot p_i = \sum_{i\ge1} [g(x_i) - E(g(X))]^2 \cdot f(x_i) = E[(g(X) - E(g(X)))^2] = E(g(X)^2) - E^2(g(X))$. \textbf{2} Im Spezialfall einer lin. Transformation $g(x) = ax + b$  ist $Var(Y) = Var(aX + b) = a^2Var(X)$ damit folgt für die Stdabw. $\sigma_Y = |a|\sigma_x$. \textbf{3} Für unabhängige Zufallsvariablen $X_1, ..., X_n$ und Konst. $a_1, ..., a_n \in \mathds{R}$ gilt: $Var(a_1X_1 + ... + a_nX_n) = a_1^2Var(X_1) + ... + a_n^2Var(X_n)$ 
+\newpage
 \subsection{Konkrete diskrete Wahrscheinlichkeitsverteilungen}
+\,
+\begin{wrapfigure}{l}{0.21\textwidth}
+    \vspace{-7mm}
+    \centering
+    \includegraphics[width=0.21\textwidth]{images/5.3 Wahrscheinlichkeitsverteilungen bin(10,p).png}
+    \includegraphics[width=0.21\textwidth]{images/5.5 Wahrscheinlichkeitsverteilungen poi(λ).png}
+    \includegraphics[width=0.21\textwidth]{images/5.6 Wahrscheinlichkeitsverteilungen geo(λ).png}
+    \caption{Bin(10, p) (oben), Poi($\lambda$), Geo(p)}
+    \vspace{-26mm}
+    \label{fig:disk_dist}
+\end{wrapfigure}
 \hlc{Diskrete Gleichverteilung} Eine diskrete Zufallsvariable heißt gleich- oder Laplace-verteilt, wenn alle möglichen Werte mit gleicher Wahrscheinlichkeit auftreten. Wahrscheinlichkeitsfunktion: $f(x) = \begin{cases}
     \frac{1}{n}&x\in W(X)\\
     0&\text{sonst}
