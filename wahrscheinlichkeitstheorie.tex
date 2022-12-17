@@ -54,11 +54,11 @@ Die \hlc{Verteilungsfunktion} ist \hlcm{$F(x) = F_X(x) := P(X\le x) = \sum_{i: x
 
 \subsection{Maßzahlen diskreter Wahrscheinlichkeitsverteilungen}
 \hlc{Erwartungswert einer Diskreten Zufallsvariable}: Sei $X$ eine diskrete Zufallsvariable mit Wertebereich $W(X) = \{x_1, x_2, ...\}$ und Wahrscheinlichkeitsverteilung $p_1, p_2, ...$. Dann ist der Erwartungswert von $X$:\\ \hlcm{$E(X) := \sum_{i\ge1} x_i \cdot p_i = \sum_{i\ge1} x_i \cdot f(x_i) = \mu_x = \mu$}. Eigenschaften: \textbf{1} Für eine Funktion $g: \mathds{R} \rightarrow \mathds{R}$ ist auch $Y = g(X)$ eine Zufallsvariable, und zwar mit Wahrscheinlichkeitsverteilung $P(Y = y) = \sum_{i: g(x_i) = y} p_i$. \textbf{2} Der Erwartungswert von $Y$ ist dann $E(Y) = E(g(X)) = \sum_{i\ge1} g(x_i) \cdot p_i = \sum_{i\ge1} g(x_i) f(x_i)$. \textbf{3} Im Spezialfall einer linearen Transformation $g(x) = ax + b$ ist $E(Y) = E(aX+b) = aE(X) + b$. \textbf{4} Für Zufallsvariablen $X_1, ..., X_n$ und Konstanten $a_1, ..., a_n \in \mathds{R}$ gilt $E(a_1X_1 + ... + a_nX_n) = a_1E(X_1) + ... + a_nE(X_n)$. \textbf{5} Für unabhängige Zufallsvariablen $X_1$ und $X_2$ gilt außerdem $E(X_1 \cdot X_2) = E(X_1) \cdot E(X_2)$\\\\
-\hlc{Modus disktrer Zufallsvariablen} Jede lokale Maximumstelle der Wahrscheinlichkeitsfunktion $f_X(x)$ einer diskreten Zufallsvariablen $X$ ist ein Modus $x_{mod}$ der Verteilung von $X$. Bsp. Lokales Maximum in \cref{fig:f_F_dice} (oben) ist $x_mod$.\\\\
+\hlc{Modus disktrer Zufallsvariablen} Jede lokale Maximumstelle der Wahrscheinlichkeitsfunktion $f_X(x)$ einer diskreten Zufallsvariablen $X$ ist ein Modus $x_{mod}$ der Verteilung von $X$. Bsp. Lokales Maximum in \cref{fig:f_F_dice} (oben) ist $x_{mod}$.\\\\
 \hlc{Varianz und Standardabweichung diskreter Zufallsvariablen} Sei $X$ eine diskrete Zufallsvariable mit Wertebereich $W(X) = \{x_1, x_2, ...\}$ und Wahrscheinlichkeitsverteilung $p_1, p_2$. dann ist die Varianz von $X$: $\sigma_x^2 = \sigma^2 = Var(X):= $ $ :=\sum_{i\ge1} (x_i - E(X))^2 \cdot p_i = \sum_{i\ge1} = (x_i - E(X))^2 \cdot f(x_i)$ dementsprechend ist die Varianz \hlcm{$\sigma = \sqrt{Var(X)}$}. Bei der praktischen Berechnung ist der \emph{Verschiebungssatz} recht hilfreich: \hlcm{$Var(X) = E(X^2) - (E(X))^2$}. Eigenschaften der Varianz: \textbf{1} Die Varianz der transformierten Y(X) = g(X) als reelle Funktion ist $Var(Y) = Var(g(X)) = \sum_{i\ge1} [g(x_i) - E(g(X))]^2 \cdot p_i = \sum_{i\ge1} [g(x_i) - E(g(X))]^2 \cdot f(x_i) = E[(g(X) - E(g(X)))^2] = E(g(X)^2) - E^2(g(X))$. \textbf{2} Im Spezialfall einer lin. Transformation $g(x) = ax + b$  ist $Var(Y) = Var(aX + b) = a^2Var(X)$ damit folgt für die Stdabw. $\sigma_Y = |a|\sigma_x$. \textbf{3} Für unabhängige Zufallsvariablen $X_1, ..., X_n$ und Konst. $a_1, ..., a_n \in \mathds{R}$ gilt: $Var(a_1X_1 + ... + a_nX_n) = a_1^2Var(X_1) + ... + a_n^2Var(X_n)$ 
 \newpage
 \subsection{Konkrete diskrete Wahrscheinlichkeitsverteilungen}
-\,
+\, % wichtig für plot
 \begin{wrapfigure}{l}{0.21\textwidth}
     \vspace{-7mm}
     \centering
@@ -90,6 +90,29 @@ Die \hlc{Verteilungsfunktion} ist \hlcm{$F(x) = F_X(x) := P(X\le x) = \sum_{i: x
 
 
 \section{Stetige Zufallsvariablen}
-\section{Gesetz der großen Zahlen und zentraler Grenzwertsatz}
-\section{Zufallsvektoren}
+\subsection{Definition und Unabhängigkeit}
+\,
+\begin{wrapfigure}{r}{0.2\textwidth}
+    \vspace{-20mm}
+    \centering
+    \includegraphics[width=0.2\textwidth]{images/6.4_1.png}
+    \includegraphics[width=0.2\textwidth]{images/6.4_2.png}
+    \caption{Verteilungsfunktion (oben) Wahrscheinlichkeitsdichtefunktion (unten).}
+    \vspace{-10mm}
+    \label{fig:stetig_f_F}
+\end{wrapfigure}
+\hlc{Stetige Zufallsvariablen und Wahrscheinlichkeitsdichte} Eine Zufallsvariable $X$ heißt stetig, wenn es eine Funktion $f(x)$ gibt, sodass für jedes Intervall $[a, b] \subset \mathds{R}$ gilt: $P(a \le X \le b) = \int_a^b f(x) dx$. Die Funktion $f(x) = f_X(x)$ heißt Wahrscheinlichkeitsdichtefunktion (oder Dichtefunktion ) von $X$. Aus der Definition folgt, das die Wahrscheinlichkeit einen konkreten Wert $a$ zu beobachten, null ist, denn $P(X = a) = \int_a^a f(x) dx = F(a) - F(a) = 0$ für alle $a\in\mathds{R}$. Daraus kann man $P(a \le X \le b) = P(a < X \le b) = P(a \le X < b) = P(a < X < b)$ ableiten. Aus den \emph{Axiomen von Kolmogoroff} ergeben sich dann noch, dass die Dichte $f(X) \ge 0$ für alle $x \in \mathds{R}$ (bis auf abzählbar viele Ausnahmen) sein muss und \emph{normiert} sein muss: $P(X \in \mathds{R}) = \int_{-\infty}^\infty f(x)dx = 1$ \\\\
+Durch die Wahrscheinlichkeitsdichte ist auch die \hlc{Verteilungsfunktion} einer stetigen Zufallsvariablen eindeutig bestimmt: $F(X) = P(X \le x) = \int_{-\infty}^x f(u) du$. Sie besitzt folgenden Eigenschaften: \textbf{1} F(X) ist stetig, monoton wachsen mit $W(F(x)) \in [0, 1]$. \textbf{2} Das Grenzverhalten ist wie im diskreten Fall $\underset{x \rightarrow -\infty}{\text{lim}}F(x) = 0$ und $\underset{x \rightarrow \infty}{\text{lim}}F(x) = 1$. \textbf{3} Wenn die Dichte $f(x)$ an der STelle $x$ stetig ist, gilt $F'(x) = f(x)$. \textbf{4} Für $a, b \in \mathds{R}$ gilt \hlcm{$P(a \le X \le b) = P(a < X \le b) = P(a \le X < b) =$ $= P(a < X < b) = F(b) - F(a)$} und \hlcm{$P(X \ge a) = P(X > a) = 1 - P(X \le a) = 1 - F(a)$} \\\\
+\hlc{Unabhängigkeit stetiger Zufallsvariablen}: Analog zur Unabhängigkeit diskreter Zufallsvariablen sind auch stetige Zufallsvariablen $X_1, ..., X_n$ unabhängig, wenn für beliebige Mengen $A_1, ..., A_n \subset \mathds{R}$ gilt: $P(X_1 \in A_1, ..., X_n \in A_n) = P(X_1 \in A_1) \cdot ... \cdot P(X_n \in A_n)$. Dies gilt sobald die Gleichheit für alle Mengen der Form $A_i = (-\infty, x_i]$ gegeben ist.
+\subsection{Maßzahlen stetiger Wahrscheinlichkeitsverteilungen}
 
+Sei $X$ eine stetige Zufallsvariable mit Wahrscheinlichkeitsdichte $f(x)$ Dann ist der \hlc{Erwartungswert} von $X$ $E(X):=\int_{-\infty}^\infty x\cdot f(x)dx$ \textbf{vorgesetzt} $\int_{-\infty}^\infty |x|\cdot f(x)dx < \infty$. Eigenschaften des Erwartungswert: \textbf{1} Für eine Funktion $g: \mathds{R} \rightarrow \mathds{R}$ besitzt die Zufallsvariable $Y = g(X)$ den Erwartungswert $E(Y) = E(g(X)) = \int_{-\infty}^{\infty}g(x) \cdot f(x) dx$. \textbf{2} Wenn g(x) linear dann $E(Y) = aE(X) + b$. \textbf{3} Ist die Dichte symmetrisch um den Punkt $c$, also $f(x - x) = f(c + x)$ für alle $x$, so ist $E(X) = c$. \textbf{4} Für Zufallsvariable $X_1, ..., X_n$ und Konstanten $a_1, ..., a_n \in \mathds{R}$ gilt $E(a_1X_1 + ... + a_nX_n) = a_1E(X_1) + ... + a_nE(X_n)$. \textbf{5} Für unabhängige Zufallsvariable $X_1$ und $X_2$ gilt außerdem $E(X_1 \cdot X_2) = E(X_1) \cdot E(X_2)$. \hlc{Modus} analog zu diskreten Zufallsvariablen.\\
+\hlc{p-Quantil}: Das $p$-Quantil mit $0<p<1$ zu einer Zufallsvariablen $X$ ist ein Wert $x_p$, den die Zufallsvariable mit einer Wahrscheinlichkeit von $p \cdot 100\%$ \emph{unterschreitet} und mit einer Wahrscheinlichkeit von $(1 - p) \cdot 100\%$ \emph{überschreitet}: $P(X \le x_p) = p$ und $P(X \ge x_p) = 1 - p$. Per Definition ist das $p-Quantil$ jeder Wert $x_p$ für den gilt \hlcm{$F(x_p) = P(X \le x_p) = p$}. Der \hlc{Median} ist dann der Wert $x_{med}$ für $p = 0.5$. Es gilt \hlcm{$F(x_{med}) = 0.5$}\\
+\hlc{Varianz und Standardabweichung}: Sei $X$ eine stetige Zufallsvariable mit Wahrscheinlichkeitsdichte $f(x)$, dann ist die Varianz von $X$ $\sigma^2 = Var(X):= \int_{-\infty}^{\infty}(x - E(X))^2 \cdot f(x) dx$. Die Standardabweichung ist wiederum \hlcm{$\sigma = \sqrt{Var(X)}$}. Praktisch wird die Varianz analog zum diskreten Fall mit dem Verschiebungssatz bestimmt \hlcm{$\sigma^2 = Var(X) = E(X^2) - E^2(X)$}. Eigenschaften der Varianz: \textbf{1} Die Varianz kann als Erwartungswert einer geeignet transformierten Zufallsvariable geschrieben werden: $Var(X) = E[(X - E(X))^2]$. \textbf{2} Die Varianz der transformierten Zufallsvariable $Y = g(X)$ mit $g(x)$ als reeler Funktion ist $Var(Y) = Var(g(X)) = \int_{-\infty}^{\infty}[g(x_i) - E(g(X))]^2 \cdot f(x) dx = E[(g(X) - E(g(X)))^2] = E(g^2(X)) - E^2(g(X))$ für $g(x) = ax + b$ ist $Var(Y) = Var(aX + b) = a^2Var(X)$ und $\sigma_Y = |a|\sigma_X$. \textbf{4} Für \emph{unabhängige Zufallsvariablen} $X_1, ..., X_n$ und Konstanten $a_1, ..., a_n \in \mathds{R}$ gilt $Var(a_1X_1 + ... + a_nX_n) = a_1^2Var(X_1) + ... + a_n^2Var(X_n)$\\\\
+\hlc{Zentrierung und Standardisierung} Eine Zufallsvariable $X$ heißt \emph{zentriert}, wenn $\mu = E(X) = 0$ ist. Sie heißt \emph{standardisiert}, wenn zusätzlich $\sigma^2 = Var(X) = 1$ ist. Für jede Zufallsvariable $X$, für die Erwartungswert $\mu$ und Varianz $\sigma^2$ existieren, erhält man mit Hilfe der linearen Transformation \hlcm{$Z = \frac{X - \mu}{\sigma}$}, denn $E(Z) = E(\frac{X - \mu}{\sigma}) = \frac{1}{\sigma}(E(X) - \mu) = 0$ und $Var(Z) = Var(\frac{X - \mu}{\sigma}) = \frac{1}{\sigma^2} Var(X) = 1$. Die Standardisierung ist vor allem für die Normalverteilung sehr wichtig.
+\subsection{Konkrete Wahrscheinlichkeitsverteilungen}
+
+
+\section{Gesetz der großen Zahlen und zentraler Grenzwertsatz}
+
+% \section{Zufallsvektoren}
