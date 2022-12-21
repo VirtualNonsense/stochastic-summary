@@ -145,9 +145,10 @@ Zusammenhang zw. Exponential- und Poisson-Verteilung: Sei N die Anzahl Ereigniss
 \hlc{Lognormalverteilung - $X \sim N(\mu, \sigma^2)$} Genau so, wie $N(\mu, \sigma^2)$, nur dass man $ln$ auf Eingangswerte anwenden muss. $E(X) = e^{\mu + \sigma^2/2}$ und $Var(X) = e^{2\mu + \sigma^2}(e^{\sigma^2} - 1)$ \emph{Mögliche Anwendungen}: Einkommen, Wartezeit, Versicherungsschaden, Niederschlagsmengen, Wachstumsfaktoren.\\\\
 
 \hlc{$\chi^2$ Verteilung - $Z \sim \chi^2(n)$}: Seien $X_1, ..., X_n$ unabhängige standardnormalverteilte Zufallsvariablen d.h. $X_i \sim N(0, 1)$. Dann folgt die Zufallsvariable $Z = X_1^2 + ... + X_n^2$. \hlc{n} bezeichnet die Freiheitsgrade. $E(Z) = n$ und $Var(Z) = 2n$. Quantile: $\chi_p^2(n)$ für $n \le 30 \rightarrow$ Tabellen. Annäherung für $n > 30$: $\chi_p^2(n)=0.5(z_p + \sqrt{2n - 1})^2$  \emph{Mögliche Anwendungen}: Für kleine $n$ ist die Verteilung rechtsschief und daher für die Modellierung von Lebensdauern Geeignet.Wird $n$ größer nähern  sich die Dichten der Normalverteilungsdichte an.\\
-\hlc{Student's $t$-Verteilung - $T \sim t(n)$}: Seien $X \sim N(0, 1)$ und $Z \sim \chi^2(n)$ unabhängige Zufallsvariablen. Dann folgt die Zufallsvariable $T = \frac{X}{\sqrt{Z/n}}$. $E(T) = 0$ für $n \ge 2$ und $Var(T) = \frac{n}{n-2}$ für $n \ge 3$. \emph{Mögliche Anwendungen}: Für kleine $n$ deutlich \glqq spitzer\grqq\, als $N(\mu, \sigma^)$. Kann für dinge verwendet werden, die weniger um $\mu$ schwanken. Läuft aber gegen eine Normalverteilung für große $n$\\
+\hlc{Student's $t$-Verteilung - $T \sim t(n)$}: Seien $X \sim N(0, 1)$ und $Z \sim \chi^2(n)$ unabhängige Zufallsvariablen. Dann folgt die Zufallsvariable $T = \frac{X}{\sqrt{Z/n}}$. $E(T) = 0$ für $n \ge 2$ und $Var(T) = \frac{n}{n-2}$ für $n \ge 3$. \emph{Mögliche Anwendungen}: Für kleine $n$ deutlich \glqq spitzer\grqq\, als $N(\mu, \sigma^2)$. Kann für dinge verwendet werden, die weniger um $\mu$ schwanken. Läuft aber gegen eine Normalverteilung für große $n$\\
 $\chi^2$ und Students's $t$-Verteilung: Verteilungen, die nur selten zur Modellierung konkreter Sachverhalte verwendet werden. Sie dienen insbesondere als \emph{Testverteilungen} in der induktiven Statistik. Dabei wird anhand ihrer Quantile beurteilt, mit welcher Hypothese zutreffen ist oder nicht.
 
 \section{Gesetz der großen Zahlen und zentraler Grenzwertsatz}
-
+\subsection{Gesetz der großen Zahlen}
+\subsection{Zentraler Grenzwertsatz}
 % \section{Zufallsvektoren}
