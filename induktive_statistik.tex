@@ -1,3 +1,36 @@
 \section{\textbf{INDUKTIVE STATISTIK} - Parameterschätzung}
-
+Maßzahlen, wie Mittelwerte oder die Stichprobenvarianz bestimmt nach um aussagen über die die konkreten Beobachtung innerhalb der Stichprobe zu treffen sondern als \emph{Schätzer} für \underline{nicht} beobachtbare Größen der zugrundeliegenden Grundgesamtheit bzw. Population.
+\subsection{Schätzstatistiken und Schätzwerte}
+Punktschätzung: Beschreiben von einer Eigenschaft oder Parameter einer Grundgesamtheit mittels eines einzigen Näherungswertes. Beispielsweise von der Varianz oder dem Erwartungswert.
+Den für die Grundgesamtheit zu schätzende Parameter wird idr mit $\theta$ bezeichnet. Die Schätzung von $\theta$ erfolgt dann mit Hilfe einer Funktion in Abhängigkeit von den Beobachtungen innerhalb einer Stichprobe, der sogenannten \emph{Schätzfunktion, Schätzstatistik} oder kurz \emph{Schätzer}: $T = g(X_1, ..., X_n)$. Die Schätzstatistik $T$ ist hierbei selbst wieder eine Zufallsvariable. Der \emph{Schätzwert}, der sich aus den Realisierungen der einzelnen Zufallsvariablen $X_i$ ergibt wird mit $t = g(x_1, ..., x_n)$ bezeichnet. Beispiele für Schätzer sind die Lagemaße und kenndaten von Stichproben aus vorangegangen Abschnitten.
+\subsection{Eigenschaften von Schätzstatistiken}
+\hlc{Erwartungstreue}: Ein Schätzer $T$ wird als erwartungstreu bezeichnet, 
+wenn er im Erwartungswert genau den Wert $\theta$ liefert, den sie schätzen soll: $E(T) = E(g(X_1, ..., X_n)) = \theta$. Ist eine Schätzstatistik $T$ nicht erwartungstreu, 
+so misst man die systematische Über- oder Unterschätzung mit dem \hlc{Bias}: 
+$Bias(T) = E(T) - \theta$. Beispielhafte Rechnung für die \hlc{empirische Varianz} 
+$\overset{\sim}{S}^2 = \frac{1}{n} \sum_{i=1}^{n}(X_i - \bar{X})^2 = \frac{n - 1}{n}S^2$: 
+$Bias(\overset{\sim}{S}^2) = E(\overset{\sim}{S}^2) - \sigma^2 = \frac{n - 1}{n}\sigma^2 - \sigma^2 = - \frac{\sigma^2}{n}$. 
+Da $\underset{n \rightarrow \infty}{lim} E(T) = \theta$ gilt spricht man hierbei von einer \emph{asymptotisch erwartungsgetreuen} Schätzstatistik. 
+Das hingegen arithmetische Mittel ist ein erwarungstreuer Schätzer 
+$E(\bar{X}) = \frac{1}{n}\sum_{i=1}^{n}E(X_i)=\frac{1}{n}n\mu = \mu$. 
+Der \hlc{Standardfehler} des arithmethischen Mittels für unabhängige Beobachtungen ist jedoch: 
+$\sigma_{\bar{X}} = \sqrt{Var(\frac{1}{n} \sum_{i=1}^{n}X_i)} = \sqrt{\frac{1}{n^2}\sum_{i=1}^nVar(X_i)} = \sqrt{\frac{1}{n^2}n\sigma^2} = \frac{\sigma}{\sqrt{n}}$\\\\
+\hlc{Mittlere quadratische Abweichung}: $MSE(T) = E((T - \theta)^2) = Var(T) + Bias^2(T)$ eine Schätzstatistik $T$
+bezeichnet man als \hlc{konsistent} (im quadratischen Mittel), wenn gilt: $MSE(T) \rightarrow 0$ für $n \rightarrow \infty$.
+Der $MSE$ eignet sich auch gut für den Vergleich von Schätzstatistiken. Die Schätzstatistik, mit kleineren $MSE$,
+wird als \emph{wirksamer} oder \emph{effizienter} bezeichnet. 
+\subsection{Konstruktion von Schätzstatistiken}
+\hlc{Momente-Methode}: Man schätzt verteilungsspezifisch parameter mit dem z.B. dem Erwartungswert. Bsp. für $Pos(\lambda)$
+$E(X) = \lambda$. Analog können auch $\mu$ und $\sigma^2$ einer Normalverteilung mit Hilfe des arithmetischen Mittels und der Stichprobenvarianz geschätzt werden.
+\hlc{Kleinste Quadrate Methode}: Geeignet für die Parameter einer Regressionsgerade (siehe Regression) aber auch für $\mu$ ein mögliche Schätzstatistik
+für den Erwartungswert wäre: $T = \underset{z}{\text{arg min}}\sum_{i=1}^{n}(X_i - z)^2$.\\\\
+\hlc{Maximum-Likelihood-Schätzung (ML-Schätzer)}: Ein verfahren, bei dem Vorwissen oder eine Annahme zu Verteilung voraussetzt. 
+Idee: wähle Schätzwert für Parameter so, dass die Wahrscheinlichkeit, die Realisierung einer konkreten Stichprobe zu beobachten, maximiert wird.
+Formal wird hier mit $f(x|\theta)$ die Wahrscheinlichkeitsfunktion bzw. Wahrscheinlichkeitsdichte einer Verteilung bezeichnet. 
+Beispiel für $Pos(\lambda)$: $f(x|\lambda) = \frac{\lambda^x}{x!}e^{-\lambda}$ oder $N(\mu, \sigma^2)$: $f(x|\mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+Diese Funktion muss nur bzglch. $\theta$ maximiert werden bzw. 
+\subsection{Konfidenzintervalle}
 \section{Signifikanztests}
+\subsection{Ein-Stichproben-Testprobleme}
+\subsection{Mehr-Stichproben-Testprobleme}
+\subsection{Der $\chi^2$-Unabhängigkeitstest}
