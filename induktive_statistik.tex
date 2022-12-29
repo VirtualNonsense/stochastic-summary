@@ -28,8 +28,32 @@ für den Erwartungswert wäre: $T = \underset{z}{\text{arg min}}\sum_{i=1}^{n}(X
 Idee: wähle Schätzwert für Parameter so, dass die Wahrscheinlichkeit, die Realisierung einer konkreten Stichprobe zu beobachten, maximiert wird.
 Formal wird hier mit $f(x|\theta)$ die Wahrscheinlichkeitsfunktion bzw. Wahrscheinlichkeitsdichte einer Verteilung bezeichnet. 
 Beispiel für $Pos(\lambda)$: $f(x|\lambda) = \frac{\lambda^x}{x!}e^{-\lambda}$ oder $N(\mu, \sigma^2)$: $f(x|\mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
-Diese Funktion muss nur bzglch. $\theta$ maximiert werden bzw. 
+Diese Funktion soll nach dem Maximum-Likelihood-Prinzip bzglch. $\theta$ maximiert werden. 
+Die zu optimierende Funktion $L(\theta) = f(x_1, ..., x_n|\theta)$ wird als \hlc{Likelihoodfunktion} bezeichnet.
+Die Schätzstatistik $\hat{\theta} = \hat{\theta(x_1, ..., x_n)}$ mit 
+$L(\hat{\theta}) = \underset{\theta}{\text{max}}L(\theta) = \underset{\theta}{max}f(x_1, ..., x_n|\theta)$ bezeichnet man als Maximum-Likelihood Schätzer oder (ML Scätzer) für den unbekannten Parameter(vektor) $\theta$.
+Sind die einzelnen Realisierungen unabhängig gilt $L(theta) = f(x_1|\theta) \cdot ... \cdot f(x_n|\theta)$
+Bsp: \hlcm{$Pos(\lambda)$: $L(\lambda) = \Pi_{i=1}^n\frac{\lambda^{x_i}}{x_i!}e^{-\lambda}$}. Die \hlc{Loglikelihoodfunktion} ergibt sich durch $l(\theta) = \text{ln}L(\theta) = ln(\Pi_{i=1}^nf(x_i|\theta)) = \sum_{i=1}^nln(f(x_i|\theta))$ (unabhängig vorausgesetzt). Die optimierung dieser Funktion ist einfacher und die Monotonie des Logs garantiert Maxima an den gleichen stellen.
+Bsp: \hlcm{$Pos(\lambda)$: $L(\lambda) = \sum_{i=1}^n\text{ln}(\frac{\lambda^{x_i}}{x_i!}e^{-\lambda}) = \sum_{i=1}^{n}\text{ln}(\lambda^{x_i}) - ln(x_i!) + ln(e^{-\lambda}) = ln(\lambda)\sum_{i=1}^{n}x_i - \sum_{i=1}^{n}ln(x_i!) - n\lambda$} $\rightarrow$ 
+Ableiten und null setzen: $l'(\hat{\lambda}) = \frac{1}{\hat{\lambda}}\sum_{i=1}^{n}x_i - n = 0 \Leftrightarrow \hat{\lambda}=\frac{1}{n}\sum_{i=1}^{n}x_i=\bar{x}$
 \subsection{Konfidenzintervalle}
+\begin{wrapfigure}{l}{0.5\textwidth}
+    \vspace{-5mm}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/tab9.1_konfidenzintervalle.png}
+    \caption{Zweiseitige und einseitige $(1 - \alpha)$ -Konfidenzintervalle unter verschiedenen Verteilungsannahmen für
+    die Stichprobenvariablen sowie bei bekannter und unbekannter Varianz}
+    \vspace{-10mm}
+    \label{fig:konfi}
+\end{wrapfigure}
+Alternative zur Punktschätzung, bei der man nicht einen Schätzwert für einen Parameter bestimmt, sondern ein Intervall, in dem der Parameter einer vorgegebenen Wahrscheinlichkeit liegt.
+\hlc{Zweiseitige Konfidenzintervalle}: Dafür werden zwei Schätzstatistiken benötigt: $G_u = g_u(X_1, ... X_n)$ und $G_o = g_o(X_1, ... X_n)$.
+Die \hlc{Irtumswahrscheinlichkeit $\alpha$} gibt an, mit welcher Wahrscheinlichkeit der Parameter außerhalb des Intervalls liegt $P(G_u \le \theta \le G_o) = 1 - \alpha$. Schreibweise für Stichprobe $x_1, ... x_n$: $[g_u, g_o] = [g_u(x_1, ..., x_n), g_o(x_1, ..., x_n)]$ (Konkrete grenzen, und $\theta$ ist drin oder eben nicht). \hlc{einseitige Konfidenzintervalle}: Wenn z.B. die obere Grenze unendlich ist: $[g_u, \infty)$\\\\
+\hlc{Konfidenzintervalle für den Erwartungswert} vgl: \cref{fig:konfi} \\\\
+\hlc{Konfidenzintervalle für Eintrittswahrscheinlichkeiten}: Intervallschätzung für die Eintrittswahrscheinlichkeit $p$ eines bestimmten Ereignisses $A$ bei $n$ unabhängigen Wiederholungen.
+Die $Bin(n,p)$- verteilte Summe $X = X_1 + ... + X_n$ ist bei hinreichend großen $n$ normalverteilt mit $E(X) = np$ $Var(X) = np(1-p)$. Somit gilt $\bar{X} \sim N(p, \frac{p(1-p)}{n})$ bzw. $\frac{\bar{X} - p}{\sqrt{\frac{p(1-p)}{n}}}\sim N(0,1)$. 
+Das Approximierte $(1 - \alpha)$-Konfidenzintervall ist $[\bar{X} - z_{1 - \frac{\alpha}{2}}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}, \bar{X} + z_{1 - \frac{\alpha}{2}}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}]$ bzw. die einseitigen Konfidenzintervalle, wenn $p \in (0, 1)$: $[\bar{X} - z_{1 - \frac{\alpha}{2}}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}, 1)$ und $(0, \bar{X} + z_{1 - \frac{\alpha}{2}}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}]$
+
 \section{Signifikanztests}
 \subsection{Ein-Stichproben-Testprobleme}
 \subsection{Mehr-Stichproben-Testprobleme}
