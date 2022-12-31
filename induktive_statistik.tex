@@ -73,5 +73,7 @@ Mögliche Fragestellung: ab wie vielen defekten Teilen in einer Stichprobe der G
 \hlc{Fehler 1. Art}: $H_0$ wahr aber verworfen. Es gilt $P(\text{Fehler 1. Art}) = P(H_0 \text{verwerfen} | H_0 \text{wahr}) \le \alpha$ \hlc{Fehler 2. Art}: $H_0$ falsch aber beibehalten.$P(\text{Fehler 2. Art}) = P(H_0 \text{beibehalten} | H_0 \text{falsch})$ 
 \subsection{Ein-Stichproben-Testprobleme}
 \hlc{Der (approxmierte) Binomialtest}: 
+Approximation von Binomialverteilungen $Bin(n, p_0)$ durch eine $N(np_0, np_0(1-p_0))$ Verteilung (Satz von de Moivre). Es können drei Hypothesen getestet werden: $(a)$: $H_0: p = p_0$ vs $H_1 \neq p_0$.\\$(b)$: $H_0: p \le p_0$ vs $H_1 > p_0$. $(c)$: $H_0: p \ge p_0$ vs $H_1 < p_0$. Nach mit Standardisierung von $X = X_1 + ... + X_n$ gilt unter $H_0$ näherungsweise $Z = \frac{X - np_0}{\sqrt{np_0(1-p_0)}} \overset{a}{\sim}N(0, 1)$. Die Nullhypothese wird abgelehnt, wenn die Anzahl $X$ signifikant zum Niveau $\alpha$ von der erwarteten Anzahl $np_0$ bzw $Z$ Erwartungswert null abweicht. Zu $\alpha$ ergeben sich folgende Ablehnungsbereiche: $(a)$: $\{z: z < -z_{1-\alpha/2}\} \cup \{z: z>z_{1-\alpha/2}\} = \{z: |z| > z_{1-\alpha/2}\}$. $(b)$: $\{z: z > z_{1-\alpha/2}\}$. $(c)$: $\{z: z < -z_{1-\alpha/2}\}$
+\newpage
 \subsection{Mehr-Stichproben-Testprobleme}
 \subsection{Der $\chi^2$-Unabhängigkeitstest}
