@@ -55,6 +55,23 @@ Die $Bin(n,p)$- verteilte Summe $X = X_1 + ... + X_n$ ist bei hinreichend große
 Das Approximierte $(1 - \alpha)$-Konfidenzintervall ist $[\bar{X} - z_{1 - \frac{\alpha}{2}}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}, \bar{X} + z_{1 - \frac{\alpha}{2}}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}]$ bzw. die einseitigen Konfidenzintervalle, wenn $p \in (0, 1)$: $[\bar{X} - z_{1 - \frac{\alpha}{2}}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}, 1)$ und $(0, \bar{X} + z_{1 - \frac{\alpha}{2}}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}]$
 
 \section{Signifikanztests}
+Mögliche Fragestellung: ab wie vielen defekten Teilen in einer Stichprobe der Größe $n$ ist die Angabe einer Höchstausschusrate $p$ falsch, wenn man die Aussage nur mit $\alpha$ anzweifeln möchte?\\\\
+\hlc{Vorgehen}:
+\begin{enumerate}[leftmargin=*]
+    \itemsep0em 
+    \item Quantifizierung des inhaltlichen Problems: Die Problematik defekter Teile wurde mit Hilfe der Ausschussrate Quantifiziert. Also $n \cdot p$
+    \item Formulierung der Modellannahme. Kann man davon ausgehen, dass die Stichprobenvariablen unabhängig, identisch bzw. einer eindeutigen Verteilung angehören? Wenn ja $\rightarrow$ parametrischer Test, da man gg. Parameter testen kann. Anderenfalls nichtparametrischer Test und man muss ohne auskommen.
+    \item Aufstellen der testenden \emph{Nullhypothese} $H_0$ und der Alternativhypothese $H_1$. Bei einseitigen Testproblemen ist die Abweichung in nur eine Richtung interessant: $H_0: p \le 0.005$ vs $H_1: p > 0.05$. Bei Hypothesen der Form $H_0: \theta = c$ vs. $H_1 \theta \neq c$ spricht man von Zweiseitigen Testproblemen.
+    \item Wahl einer geeigneten Teststatistik. Für ein Problem wie mit defekten Teilen könnte man sowas wie $X = X_1 + ... + X_60$ wählen. Allgemein also einfach eine Funktion, die alle Stichprobenvariablen beinhaltet.
+    \item Identifikation der Testverteilung. Wähle Teststatistik so, dass sie unter Annahme das $N_0$ korrekt ist einer bekannten Wahrscheinlichkeitsverteilung folgen. Wähle bei einseitigen die Parameter so, dass sie möglichst nah an $N_1$ liegen.
+    \item Festlegung des Signifikanzniveaus $alpha$: Mit welcher Wahrscheinlichkeit ist man bereit $N_0$ zu verwerfen, obwohl sie korrekt ist. Typische Werte sind $1\%$, $5\%$ $10\%$.
+    \item Bestimmung des Ablehnungsbereichs. Der Ablehnungsbereichs enthält alle werte der Teststatistik $T$, für die die $H_0$ abgelehnt wird und $H_1$ deutlich plausibler wird. Dieser Bereich wird durch von $\alpha$ abhängige Quantile festgelegt. Im einseitigen Test von z.B. einer Eingangskontrolle mit $\alpha = 5\%$ nutzt man $95\%$-Quantil von einer $Bin$-verteilung. Für $Bin(60, 0.05)$ wäre das $A = {6, 7, ... 60}$. Das Komplement von $A$ ist der Annahmebereich.
+    Bei Zweiseitigen Testproblemen besteht der Ablehnungsbereichsbereich idR aus zwei Teilen, da sowohl sehr große als auch sehr kleine Werte der Teststatistik kritisch sind. In dem Fall teilt man die Irrtumswahrscheinlichkeit $\alpha$ in zwei Hälften auf: $A = \{t: t<q_{\alpha/2}\} \cup \{t: t>q_{1 - \alpha/2}\}$. die beiden $q$ sind hierbei die $\alpha/2$ bzw $(1 - \alpha/2)$-Quantile.
+    \item Berechnung der Teststatistik. 
+    \item Entscheidung. Prüfe, in welchen Bereich das Ergebnis liegt 
+\end{enumerate}
+\hlc{Fehler 1. Art}: $H_0$ wahr aber verworfen. Es gilt $P(\text{Fehler 1. Art}) = P(H_0 \text{verwerfen} | H_0 \text{wahr}) \le \alpha$ \hlc{Fehler 2. Art}: $H_0$ falsch aber beibehalten.$P(\text{Fehler 2. Art}) = P(H_0 \text{beibehalten} | H_0 \text{falsch})$ 
 \subsection{Ein-Stichproben-Testprobleme}
+\hlc{Der (approxmierte) Binomialtest}: 
 \subsection{Mehr-Stichproben-Testprobleme}
 \subsection{Der $\chi^2$-Unabhängigkeitstest}
